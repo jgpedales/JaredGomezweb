@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jared Gómez | Maestro Luthier</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --bg-main: #fdfcfb;
+            --bg-header: rgba(253, 252, 251, 0.95);
+            --bg-contrast: #1c1917;
+            --text-main: #1c1917;
+            --text-muted: #57534e;
+            --text-inverse: #ffffff;
+            --color-primary: #8b5e3c; 
+            --color-border: #e7e5e4;
+            --color-whatsapp: #25D366;
+            --gradient-instagram: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .instagram-text-gradient {
+            background: var(--gradient-instagram);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Desplazamiento Suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animación suave para imágenes */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Estilo para el contenedor del mapa */
+        .map-container {
+            filter: grayscale(1) contrast(1.1) brightness(0.9);
+            transition: filter 0.5s ease;
+        }
+        .map-container:hover {
+            filter: grayscale(0.2) contrast(1) brightness(1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-[var(--bg-contrast)] text-[var(--text-inverse)] text-[9px] md:text-xs py-2.5 text-center tracking-[0.15em] font-medium uppercase z-50 relative px-4">
+        <p>Calle Figueroa 1269, Rivera — Lunes a Viernes: 09:00-12:00 y 14:00-18:00 hrs</p>
+    </div>
+
+    <header class="sticky top-0 z-50 bg-[var(--bg-header)] backdrop-blur-md border-b border-[var(--color-border)] transition-all duration-300">
+        <div class="flex max-w-7xl mx-auto px-6 py-4 items-center justify-between">
+            <a href="#" class="group">
+                <div class="border-2 border-[var(--text-main)] px-4 py-1 transition-all group-hover:bg-[var(--text-main)]">
+                    <span class="font-bold tracking-[0.3em] text-lg block group-hover:text-[var(--bg-main)] uppercase">
+                        Jared Gómez
+                    </span>
+                    <span class="text-[8px] tracking-[0.4em] uppercase block text-center group-hover:text-[var(--bg-main)]">Luthier</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                <a href="#servicios" class="hover:text-[var(--color-primary)] transition-colors">Servicios</a>
+                <a href="#experiencia" class="hover:text-[var(--color-primary)] transition-colors">Trayectoria</a>
+                <a href="#contacto" class="hover:text-[var(--color-primary)] transition-colors">Contacto</a>
+                <a href="https://instagram.com/JaredGomezLuthier" target="_blank" class="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+                    <i data-lucide="instagram" class="w-4 h-4 text-[#E1306C]"></i> 
+                    <span class="instagram-text-gradient">Instagram</span>
+                </a>
+            </nav>
+
+            <a href="https://wa.me/59899927133" target="_blank" class="bg-[var(--color-whatsapp)] text-white px-5 py-2 text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all flex items-center gap-2 shadow-sm rounded-sm">
+                <i data-lucide="message-circle" class="w-4 h-4 fill-white/20"></i>
+                <span class="hidden sm:inline">WhatsApp</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="relative h-[85vh] flex items-center overflow-hidden bg-black">
+        <img src="https://iili.io/fmhTK4R.png" alt="Taller de Luthería de Jared Gómez" class="absolute inset-0 w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+            <div class="max-w-2xl">
+                <span class="inline-block px-3 py-1 bg-[var(--color-primary)] text-white text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+                    Maestría en Cuerdas y Electrónica
+                </span>
+                <h1 class="font-playfair text-5xl md:text-7xl lg:text-8xl text-white leading-[1.1] mb-6">
+                    La Excelencia del <br>
+                    <i class="italic font-serif">Sonido Puro</i>
+                </h1>
+                <p class="text-white/70 text-lg mb-10 max-w-lg leading-relaxed">
+                    Ajustes, mantenimiento, reparaciones y restauración. Fabricación artesanal. Más de 25 años dedicados al servicio de músicos exigentes en Uruguay y la región.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#servicios" class="bg-white text-black px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[var(--color-primary)] hover:text-white transition-all text-center min-w-[180px]">
+                        Ver Servicios
+                    </a>
+                    <a href="https://wa.me/59899927133?text=Hola%20Jared,%20quisiera%20consultar%20un%20presupuesto%20para%20un%20servicio%20de%20luther%C3%ADa." target="_blank" class="border border-white/30 text-white backdrop-blur-md px-8 py-4 text-xs font-bold uppercase tracking-widest hover:bg-[var(--color-whatsapp)] hover:border-[var(--color-whatsapp)] transition-all text-center min-w-[180px]">
+                        Presupuesto Gratis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="border-b border-[var(--color-border)]">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-[var(--color-border)]">
+            <div class="p-8 text-center">
+                <span class="block text-3xl font-playfair mb-1">25+</span>
+                <span class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Años de Oficio</span>
+            </div>
+            <div class="p-8 text-center">
+                <span class="block text-3xl font-playfair mb-1">1000+</span>
+                <span class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Instrumentos</span>
+            </div>
+            <div class="p-8 text-center">
+                <span class="block text-3xl font-playfair mb-1">Rivera</span>
+                <span class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Uruguay</span>
+            </div>
+            <div class="p-8 text-center">
+                <span class="block text-3xl font-playfair mb-1">Excelencia</span>
+                <span class="text-[10px] uppercase tracking-widest text-[var(--text-muted)] font-bold">Garantizada</span>
+            </div>
+        </div>
+    </div>
+
+    <section id="servicios" class="py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-[10px] font-bold tracking-[0.3em] text-[var(--color-primary)] uppercase mb-4">Especialidades</h2>
+                    <p class="font-playfair text-4xl md:text-5xl">Servicios integrales para el músico profesional.</p>
+                </div>
+                <p class="text-[var(--text-muted)] text-sm max-w-xs">Desde el ajuste más sutil hasta la reconstrucción total de instrumentos acústicos y electrónicos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-[var(--color-border)] border border-[var(--color-border)]">
+                <div class="bg-[var(--bg-main)] p-12 hover:bg-neutral-50 transition-all group">
+                    <i data-lucide="music" class="w-8 h-8 mb-8 text-[var(--color-primary)]"></i>
+                    <h3 class="font-playfair text-2xl mb-4 uppercase tracking-tight">Guitarras y Bajos</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">Ajuste fino (setup), rectificado de trastes, calibración, electrónica y personalizaciones.</p>
+                </div>
+                <div class="bg-[var(--bg-main)] p-12 hover:bg-neutral-50 transition-all group">
+                    <i data-lucide="mic-2" class="w-8 h-8 mb-8 text-[var(--color-primary)]"></i>
+                    <h3 class="font-playfair text-2xl mb-4 uppercase tracking-tight">Cuerdas Sinfónicas</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">Mantenimiento y reparación especializada para instrumentos de arco. Restauración de maderas.</p>
+                </div>
+                <div class="bg-[var(--bg-main)] p-12 hover:bg-neutral-50 transition-all group">
+                    <i data-lucide="cpu" class="w-8 h-8 mb-8 text-[var(--color-primary)]"></i>
+                    <h3 class="font-playfair text-2xl mb-4 uppercase tracking-tight">Electrónica y Pianos</h3>
+                    <p class="text-sm text-[var(--text-muted)] leading-relaxed mb-6">Servicio técnico de amplificadores a válvulas, pedales de efectos y afinación de pianos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="py-24 bg-[var(--bg-contrast)] text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative group">
+                <div class="aspect-[4/5] border border-white/20 p-4 img-hover-zoom">
+                    <img src="https://iili.io/fye8ha2.png" alt="Jared Gómez trabajando en el taller" class="w-full h-full object-cover grayscale brightness-75 opacity-90 transition-all duration-700 group-hover:grayscale-0">
+                </div>
+                <div class="absolute -bottom-8 -right-8 bg-[var(--color-primary)] p-10 hidden md:block shadow-xl">
+                    <span class="text-5xl font-playfair italic">25+</span>
+                    <p class="text-[10px] uppercase tracking-[0.2em] font-bold mt-2">Años de maestría</p>
+                </div>
+            </div>
+            <div>
+                <h2 class="text-[10px] font-bold tracking-[0.3em] text-[var(--color-primary)] uppercase mb-6">Sobre el Maestro</h2>
+                <h3 class="font-playfair text-5xl mb-8 leading-tight">Jared Gómez: Vida entre maderas y circuitos.</h3>
+                <div class="space-y-6 text-white/70 leading-relaxed text-lg">
+                    <p>Con un cuarto de siglo de experiencia, Jared Gómez ha consolidado su taller en Rivera como un referente de precisión en Uruguay.</p>
+                    <p>Cada instrumento que entra al taller es tratado como una pieza única. No solo buscamos que funcione, buscamos que inspire.</p>
+                </div>
+                
+                <div class="mt-12 pt-12 border-t border-white/10 flex items-center gap-6">
+                    <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-[var(--color-primary)] shadow-lg flex-shrink-0">
+                        <img src="https://iili.io/fyVdKru.jpg" alt="Jared Gómez" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <p class="font-playfair text-2xl">Jared Gómez</p>
+                        <p class="text-[10px] uppercase tracking-widest text-[var(--color-primary)] font-bold mt-1">Maestro Luthier</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-24 px-6 bg-[var(--bg-main)]">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-[10px] font-bold tracking-[0.3em] text-[var(--color-primary)] uppercase mb-4">Contacto</h2>
+                    <h3 class="font-playfair text-4xl mb-8">Ubicación y Citas</h3>
+                    
+                    <div class="space-y-8 mt-12">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-neutral-100 flex items-center justify-center border border-[var(--color-border)]">
+                                <i data-lucide="map-pin" class="w-5 h-5 text-[var(--color-primary)]"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest font-bold text-[var(--text-muted)] mb-1">Ubicación</p>
+                                <p class="text-lg font-medium">Calle Figueroa 1269, Rivera, Uruguay</p>
+                            </div>
+                        </div>
+
+                        <div class="w-full h-64 border border-[var(--color-border)] overflow-hidden rounded-sm map-container">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3434.93297063683!2d-55.5414329!3d-30.8988086!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9507119e71f5436d%3A0x6a0f7e4e8973b754!2sFigueroa%201269%2C%2040000%20Rivera%2C%20Departamento%20de%20Rivera%2C%20Uruguay!5e0!3m2!1ses!2s!4v1708000000000!5m2!1ses!2s" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-neutral-100 flex items-center justify-center border border-[var(--color-border)]">
+                                <i data-lucide="clock" class="w-5 h-5 text-[var(--color-primary)]"></i>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest font-bold text-[var(--text-muted)] mb-1">Horarios</p>
+                                <p class="text-lg">Lun a Vie: 09:00-12:00 | 14:00-18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-8">
+                    <div class="bg-white border border-[var(--color-border)] p-10 shadow-sm flex flex-col justify-center h-full">
+                        <h4 class="font-playfair text-2xl mb-6">Canales Directos</h4>
+                        <div class="space-y-6 mb-10">
+                            <a href="https://wa.me/59899927133" class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-full bg-[#eefaf1] flex items-center justify-center text-[var(--color-whatsapp)] group-hover:bg-[var(--color-whatsapp)] group-hover:text-white transition-all">
+                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[8px] uppercase font-bold tracking-widest text-[var(--text-muted)]">WhatsApp</p>
+                                    <p class="text-md font-bold">+598 99 927 133</p>
+                                </div>
+                            </a>
+                            <a href="https://instagram.com/JaredGomezLuthier" target="_blank" class="flex items-center gap-4 group">
+                                <div class="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-[#E1306C] group-hover:bg-[#E1306C] group-hover:text-white transition-all">
+                                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[8px] uppercase font-bold tracking-widest text-[var(--text-muted)]">Instagram</p>
+                                    <p class="text-md font-bold">@JaredGomezLuthier</p>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="https://wa.me/59899927133?text=Hola%20Jared,%20quisiera%20solicitar%20una%20cita%20para%20revisar%20mi%20instrumento." 
+                           target="_blank"
+                           class="flex items-center justify-center gap-3 w-full bg-[var(--color-whatsapp)] text-white py-5 text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all shadow-md rounded-sm">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            Solicitar Cita Previa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-[var(--bg-contrast)] border-t border-white/10">
+        <div class="max
