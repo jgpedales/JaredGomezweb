@@ -38,12 +38,10 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Desplazamiento Suave */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Animación suave para imágenes */
         .img-hover-zoom {
             overflow: hidden;
         }
@@ -54,7 +52,6 @@
             transform: scale(1.05);
         }
 
-        /* Estilo para el contenedor del mapa */
         .map-container {
             filter: grayscale(1) contrast(1.1) brightness(0.9);
             transition: filter 0.5s ease;
@@ -228,14 +225,14 @@
 
                         <div class="w-full h-64 border border-[var(--color-border)] overflow-hidden rounded-sm map-container">
                             <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3393.424564858062!2d-55.5393699!3d-30.9022699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x950711993f958f9d%3A0x643640203f196a0b!2sCalle%20Figueroa%201269%2C%20Rivera%2C%20Uruguay!5e0!3m2!1ses!2s!4v1700000000000" 
-    width="100%" 
-    height="100%" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3419.6455113886544!2d-55.53424172440854!3d-31.13346977439501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a9e336b99d5205%3A0xc3d3a4d04849646c!2sFigueroa%201269%2C%2040000%20Rivera%2C%20Uruguay!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
 
                         <div class="flex gap-6">
@@ -286,8 +283,26 @@
     </section>
 
     <footer class="py-16 bg-[var(--bg-contrast)] border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+            <div class="border-2 border-white/20 px-6 py-2 mb-8">
+                <span class="text-white font-bold tracking-[0.4em] text-xl uppercase">Jared Gómez</span>
+            </div>
+            <p class="text-white/40 text-[10px] uppercase tracking-[0.3em] leading-relaxed">
+                © 2024 Jared Gómez Luthier — Rivera, Uruguay.
+            </p>
+        </div>
+    </footer>
 
-        <div class="max
-
-
-
+    <script>
+        lucide.createIcons();
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-md');
+            } else {
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
