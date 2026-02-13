@@ -318,3 +318,23 @@
 
 
 
+
+/* ===== HERO 3D MOUSE EFFECT ===== */
+
+const hero = document.querySelector(".hero-bg");
+
+document.addEventListener("mousemove", (e) => {
+
+  if(!hero) return;
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 8;
+  const y = (e.clientY / window.innerHeight - 0.5) * 8;
+
+  hero.style.transform += ` translate(${x}px, ${y}px)`;
+
+});
+
+/* suaviza cuando el mouse sale */
+document.addEventListener("mouseleave",()=>{
+  hero.style.transition = "transform .6s ease";
+});
