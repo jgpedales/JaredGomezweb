@@ -14,7 +14,7 @@
         
         :root {
             --bg-main: #fdfcfb;
-            --bg-header: rgba(253, 252, 251, 0.85);
+            --bg-header: rgba(253, 252, 251, 0.9);
             --bg-contrast: #1c1917;
             --text-main: #1c1917;
             --text-muted: #57534e;
@@ -47,6 +47,15 @@
         }
 
         html { scroll-behavior: smooth; }
+
+        /* Estilos del Mapa (Restaurados de WebJGpro1) */
+        .map-container {
+            filter: grayscale(1) contrast(1.1) brightness(0.9);
+            transition: filter 0.5s ease;
+        }
+        .map-container:hover {
+            filter: grayscale(0) contrast(1) brightness(1);
+        }
 
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: var(--bg-main); }
@@ -94,6 +103,16 @@
             transition: 0.5s;
         }
         .btn-modern:hover::after { left: 100%; }
+
+        #mobile-nav {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+        }
+        #mobile-nav.open {
+            max-height: 450px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -124,10 +143,28 @@
                 </a>
             </nav>
 
-            <a href="https://wa.me/59899927133" target="_blank" class="bg-[var(--color-whatsapp)] text-white px-5 py-2 text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all flex items-center gap-2 shadow-sm rounded-sm interactive-hover btn-modern">
-                <i data-lucide="message-circle" class="w-4 h-4 fill-white/20"></i>
-                <span class="hidden sm:inline">WhatsApp</span>
-            </a>
+            <div class="flex items-center gap-4">
+                <a href="https://wa.me/59899927133" target="_blank" class="bg-[var(--color-whatsapp)] text-white px-5 py-2 text-[10px] font-bold uppercase tracking-widest hover:brightness-110 transition-all flex items-center gap-2 shadow-sm rounded-sm interactive-hover btn-modern">
+                    <i data-lucide="message-circle" class="w-4 h-4 fill-white/20"></i>
+                    <span class="hidden sm:inline">WhatsApp</span>
+                </a>
+                <button id="menu-toggle" class="md:hidden text-[var(--text-main)] p-1 interactive-hover focus:outline-none">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-nav" class="md:hidden absolute top-full left-0 w-full bg-[var(--bg-main)] border-b border-[var(--color-border)] shadow-xl overflow-hidden z-40">
+            <nav class="flex flex-col p-6 gap-5 text-[11px] font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                <a href="#servicios" class="mobile-link py-2 border-b border-neutral-100">Servicios</a>
+                <a href="galeria.html" class="mobile-link py-2 border-b border-neutral-100">Galería</a>
+                <a href="#experiencia" class="mobile-link py-2 border-b border-neutral-100">Trayectoria</a>
+                <a href="#contacto" class="mobile-link py-2 border-b border-neutral-100">Contacto</a>
+                <a href="https://instagram.com/JaredGomezLuthier" target="_blank" class="mobile-link py-2 flex items-center gap-2">
+                    <i data-lucide="instagram" class="w-4 h-4 text-[#E1306C]"></i> 
+                    <span class="instagram-text-gradient">Instagram</span>
+                </a>
+            </nav>
         </div>
     </header>
 
@@ -223,17 +260,27 @@
                 <div data-aos="fade-up">
                     <h2 class="text-[10px] font-bold tracking-[0.3em] text-[var(--color-primary)] uppercase mb-4">Contacto</h2>
                     <h3 class="font-playfair text-4xl mb-8">Ubicación y Citas</h3>
+                    
                     <div class="space-y-8 mt-12">
                         <div class="flex gap-6 group">
-                            <div class="w-12 h-12 bg-neutral-100 flex items-center justify-center border border-[var(--color-border)]"><i data-lucide="map-pin" class="w-5 h-5 text-[var(--color-primary)]"></i></div>
+                            <div class="w-12 h-12 bg-neutral-100 flex items-center justify-center border border-[var(--color-border)] group-hover:border-[var(--color-primary)] transition-colors"><i data-lucide="map-pin" class="w-5 h-5 text-[var(--color-primary)]"></i></div>
                             <div><p class="text-[10px] uppercase tracking-widest font-bold text-[var(--text-muted)] mb-1">Ubicación</p><p class="text-lg font-medium">Calle Figueroa 1269, Rivera, Uruguay</p></div>
                         </div>
+
+                        <div class="w-full h-64 border border-[var(--color-border)] overflow-hidden rounded-sm map-container shadow-sm">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3419.6455113886544!2d-55.53424172440854!3d-31.13346977439501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a9e336b99d5205%3A0xc3d3a4d04849646c!2sFigueroa%201269%2C%2040000%20Rivera%2C%20Uruguay!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
                         <div class="flex gap-6 group">
-                            <div class="w-12 h-12 bg-neutral-100 flex items-center justify-center border border-[var(--color-border)]"><i data-lucide="clock" class="w-5 h-5 text-[var(--color-primary)]"></i></div>
+                            <div class="w-12 h-12 bg-neutral-100 flex items-center justify-center border border-[var(--color-border)] group-hover:border-[var(--color-primary)] transition-colors"><i data-lucide="clock" class="w-5 h-5 text-[var(--color-primary)]"></i></div>
                             <div><p class="text-[10px] uppercase tracking-widest font-bold text-[var(--text-muted)] mb-1">Horarios</p><p class="text-lg">Lun a Vie: 09:00-12:00 | 14:00-18:00</p></div>
                         </div>
                     </div>
                 </div>
+
                 <div class="flex flex-col gap-8" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-white border border-[var(--color-border)] p-10 shadow-sm flex flex-col justify-center h-full hover:shadow-lg transition-all duration-500">
                         <h4 class="font-playfair text-2xl mb-6">Canales Directos</h4>
@@ -241,6 +288,10 @@
                             <a href="https://wa.me/59899927133" class="flex items-center gap-4 group interactive-hover">
                                 <div class="w-10 h-10 rounded-full bg-[#eefaf1] flex items-center justify-center text-[var(--color-whatsapp)] group-hover:bg-[var(--color-whatsapp)] group-hover:text-white transition-all transform group-hover:scale-110"><i data-lucide="message-circle" class="w-5 h-5"></i></div>
                                 <div><p class="text-[8px] uppercase font-bold tracking-widest text-[var(--text-muted)]">WhatsApp</p><p class="text-md font-bold">+598 99 927 133</p></div>
+                            </a>
+                            <a href="https://instagram.com/JaredGomezLuthier" target="_blank" class="flex items-center gap-4 group interactive-hover">
+                                <div class="w-10 h-10 rounded-full bg-neutral-50 flex items-center justify-center text-[#E1306C] group-hover:bg-[#E1306C] group-hover:text-white transition-all transform group-hover:scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></div>
+                                <div><p class="text-[8px] uppercase font-bold tracking-widest text-[var(--text-muted)]">Instagram</p><p class="text-md font-bold">@JaredGomezLuthier</p></div>
                             </a>
                         </div>
                         <a href="https://wa.me/59899927133?text=Hola%20Jared,%20cita." target="_blank" class="flex items-center justify-center gap-3 w-full bg-[var(--color-whatsapp)] text-white py-5 text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all shadow-md rounded-sm interactive-hover btn-modern">
@@ -263,6 +314,24 @@
     <script>
         lucide.createIcons();
         AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileNav.classList.toggle('open');
+            menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+            lucide.createIcons();
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
 
         const cursor = document.getElementById('cursor');
         document.addEventListener('mousemove', (e) => {
