@@ -49,11 +49,21 @@
             overflow: hidden;
             background-color: #f3f2f1;
             aspect-ratio: 1 / 1;
+            cursor: zoom-in; /* Cambiamos el cursor para indicar que es clickeable */
         }
         .img-hover-zoom img {
             transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .img-hover-zoom:hover img { transform: scale(1.08); }
+
+        /* Estilos para el visor de imágenes (Lightbox) */
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #lightbox.active img {
+            transform: scale(1);
+        }
 
         @media (max-width: 768px) {
             .custom-cursor { display: none !important; }
@@ -64,6 +74,13 @@
 <body class="antialiased">
 
     <div class="custom-cursor" id="cursor"></div>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm">
+        <button id="close-lightbox" class="absolute top-6 right-6 text-white hover:text-[var(--color-primary)] transition-colors p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Zoom" class="max-w-[90%] max-h-[90vh] object-contain shadow-2xl transform scale-95 transition-transform duration-300">
+    </div>
 
     <header class="sticky top-0 z-50 bg-[var(--bg-header)] backdrop-blur-md border-b border-[var(--color-border)]">
         <div class="flex max-w-7xl mx-auto px-6 py-4 items-center justify-between">
@@ -95,36 +112,36 @@
     <main class="py-16 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFC7eTl.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7Np4.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC7jYG.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFC7eTl.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7Np4.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC7jYG.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFC7wvf.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7vQS.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC7SC7.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFC7wvf.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7vQS.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC7SC7.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFC743u.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7UG9.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC76Yb.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFC743u.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7UG9.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC76Yb.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYnFn.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYuwl.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCY7M7.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFCYnFn.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYuwl.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCY7M7.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYcFe.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYGAx.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYNKF.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFCYcFe.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYGAx.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYNKF.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYeSa.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCY8Av.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYUtp.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFCYeSa.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCY8Av.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYUtp.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCY4VI.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCY6Pt.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYsln.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFCY4VI.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCY6Pt.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYsln.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
                 
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYLSs.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
-                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYZHG.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up"><img src="https://iili.io/qFCYLSs.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm zoomable" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYZHG.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
             </div>
         </div>
     </main>
@@ -141,6 +158,37 @@
         lucide.createIcons();
         AOS.init({ once: true, duration: 800 });
 
+        // Lógica del Visor de Imágenes (Lightbox)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.getElementById('close-lightbox');
+
+        document.querySelectorAll('.zoomable img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Evita scroll al estar abierto
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeBtn.addEventListener('click', closeLightbox);
+        
+        // Cerrar al hacer clic fuera de la imagen
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Cerrar con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") closeLightbox();
+        });
+
+        // Lógica del Cursor Personalizado
         const cursor = document.getElementById('cursor');
         document.addEventListener('mousemove', (e) => {
             requestAnimationFrame(() => {
