@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería | Jared Gómez Luthier</title>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        :root {
+            --bg-main: #fdfcfb;
+            --bg-header: rgba(253, 252, 251, 0.85);
+            --bg-contrast: #1c1917;
+            --text-main: #1c1917;
+            --text-muted: #57534e;
+            --text-inverse: #ffffff;
+            --color-primary: #8b5e3c; 
+            --color-border: #e7e5e4;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        .font-playfair { font-family: 'Playfair Display', serif; }
+
+        /* Cursor Personalizado */
+        .custom-cursor {
+            position: fixed;
+            top: 0; left: 0; width: 20px; height: 20px;
+            border: 1px solid var(--color-primary);
+            border-radius: 50%;
+            pointer-events: none; z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            mix-blend-mode: difference;
+        }
+        .custom-cursor.hovered { width: 50px; height: 50px; background-color: rgba(139, 94, 60, 0.2); border-color: transparent; }
+
+        .img-hover-zoom {
+            overflow: hidden;
+            background-color: #f3f2f1;
+            aspect-ratio: 1 / 1;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .img-hover-zoom:hover img { transform: scale(1.08); }
+
+        @media (max-width: 768px) {
+            .custom-cursor { display: none !important; }
+            body { cursor: auto; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="custom-cursor" id="cursor"></div>
+
+    <header class="sticky top-0 z-50 bg-[var(--bg-header)] backdrop-blur-md border-b border-[var(--color-border)]">
+        <div class="flex max-w-7xl mx-auto px-6 py-4 items-center justify-between">
+            <a href="index.html" class="group interactive-hover">
+                <div class="border-2 border-[var(--text-main)] px-4 py-1 transition-all group-hover:bg-[var(--text-main)]">
+                    <span class="font-bold tracking-[0.3em] text-lg block group-hover:text-[var(--bg-main)] uppercase">Jared Gómez</span>
+                    <span class="text-[8px] tracking-[0.4em] uppercase block text-center group-hover:text-[var(--bg-main)]">Luthier</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-[var(--text-muted)]">
+                <a href="index.html" class="hover:text-[var(--color-primary)] transition-colors interactive-hover">Inicio</a>
+                <a href="index.html#servicios" class="hover:text-[var(--color-primary)] transition-colors interactive-hover">Servicios</a>
+                <a href="index.html#contacto" class="hover:text-[var(--color-primary)] transition-colors interactive-hover">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="py-20 bg-[var(--bg-contrast)] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-[10px] font-bold tracking-[0.3em] text-[var(--color-primary)] uppercase mb-4" data-aos="fade-up">Portfolio Visual</h2>
+            <h1 class="font-playfair text-5xl md:text-7xl mb-6" data-aos="fade-up" data-aos-delay="100">Bitácora del Taller</h1>
+            <p class="text-white/60 max-w-xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                Un registro visual de nuestra dedicación al detalle. Desde ajustes electrónicos hasta restauraciones estructurales de alta complejidad.
+            </p>
+        </div>
+    </section>
+
+    <main class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFC7eTl.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7Np4.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC7jYG.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFC7wvf.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7vQS.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC7SC7.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFC743u.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFC7UG9.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFC76Yb.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYnFn.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYuwl.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCY7M7.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYcFe.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYGAx.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYNKF.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYeSa.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCY8Av.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYUtp.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCY4VI.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCY6Pt.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="100"><img src="https://iili.io/qFCYsln.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up"><img src="https://iili.io/qFCYLSs.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+                <div class="img-hover-zoom shadow-sm" data-aos="fade-up" data-aos-delay="50"><img src="https://iili.io/qFCYZHG.jpg" alt="Trabajo en Taller" class="w-full h-full object-cover border-0"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 bg-[var(--bg-contrast)] border-t border-white/10 text-center">
+        <a href="index.html" class="inline-block border border-white/20 px-8 py-3 mb-6 hover:bg-white hover:text-black transition-all interactive-hover text-[10px] font-bold uppercase tracking-widest text-white">
+            Volver al Inicio
+        </a>
+        <p class="text-white/40 text-[9px] uppercase tracking-[0.3em]">© 2024 Jared Gómez Luthier — Rivera, Uruguay</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        lucide.createIcons();
+        AOS.init({ once: true, duration: 800 });
+
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+            });
+        });
+
+        document.querySelectorAll('a, .img-hover-zoom').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+    </script>
+</body>
+</html>
